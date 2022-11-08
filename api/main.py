@@ -1,5 +1,5 @@
 
-
+# importing the modules used for making server
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -7,9 +7,11 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 import tensorflow as tf
-
+# make the server using fastapi modules
 app = FastAPI()
 
+
+#allowing the CORS
 origins = [
     "http://localhost",
     "http://localhost:3000",
@@ -22,13 +24,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# load the models if make the new model make the version number in path
 MODEL = tf.keras.models.load_model("../saved_models/1")
 
+
+#right now we have only three disease
 CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 
-@app.get("/ping")
-async def ping():
-    return "Hello, I am alive"
+@app.get("/getans")
+async def getans():
+    return "Hello, I am alive, deepak pal"
 
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
@@ -50,5 +56,7 @@ async def predict(
         'confidence': float(confidence)
     }
 
+
+# running server on port 8000
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=8000)
