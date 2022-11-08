@@ -15,7 +15,7 @@ def read_file_as_image(data) -> np.ndarray:
 
 CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 
-MODEL = tf.keras.models.load_model("../saved_models/1")
+MODEL = tf.keras.models.load_model("../saved_models/2")
 
 app = FastAPI()
 
