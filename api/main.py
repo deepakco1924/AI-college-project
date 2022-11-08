@@ -57,6 +57,6 @@ async def predict(
     }
 
 
-# running server on port 8000
+# running server on port 8000 and frontend will at 3000
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=8000)
