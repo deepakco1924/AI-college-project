@@ -223,7 +223,8 @@ export const ImageUpload = () => {
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            Plant disease detection sytem
+            Plant disease detection sytem |👉made by Deepak Pal CO19524,ECE 7TH
+            SEM
           </Typography>
           <div className={classes.grow} />
         </Toolbar>
